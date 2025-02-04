@@ -1,6 +1,6 @@
 # Ory Keto Golang Demo
 
-A small demo which requests to the Ory network to check the predefined permission for the given object, subject and action.
+A small demo which requests to the Ory network to check the predefined permission for the given object, subject and relation.
 
 ## How to run
 
