@@ -4,7 +4,9 @@ A small demo which requests to the Ory network to check the predefined permissio
 
 ## How to run
 
-```go run main.go```
+```bash
+go run main.go
+```
 
 ```bash
 curl "http://localhost:8080/check-permission?namespace=Order&object=111&relation=owner&subject=alice"
