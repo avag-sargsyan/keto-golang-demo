@@ -7,11 +7,12 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"os"
 )
 
-const (
-	oryBaseURL = "https://flamboyant-keller-zdtbkurucf.projects.oryapis.com"
-	apiKey     = "ory_pat_dLxOTPgdWVYWp1pSTKcjcMwRYRBA1hBy"
+var (
+	baseURL = os.Getenv("ORY_BASE_URL")
+	apiKey  = os.Getenv("ORY_API_KEY")
 )
 
 type CheckResponse struct {
@@ -26,7 +27,7 @@ func checkPermission(namespace, object, relation, subject string) bool {
 		"subject_id": "%s"
 	}`, namespace, object, relation, subject)
 
-	req, _ := http.NewRequest("POST", oryBaseURL+"/relation-tuples/check", bytes.NewBuffer([]byte(data)))
+	req, _ := http.NewRequest("POST", baseURL+"/relation-tuples/check", bytes.NewBuffer([]byte(data)))
 	req.Header.Set("Authorization", "Bearer "+apiKey)
 	req.Header.Set("Content-Type", "application/json")
 
